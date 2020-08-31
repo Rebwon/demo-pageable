@@ -1,4 +1,4 @@
-package com.rebwon.pagingoptimizing;
+package com.rebwon.pagingoptimizing.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

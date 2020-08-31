@@ -1,10 +1,11 @@
 package com.rebwon.pagingoptimizing;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.rebwon.pagingoptimizing.domain.Customer;
+import com.rebwon.pagingoptimizing.repository.CustomerJdbcRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

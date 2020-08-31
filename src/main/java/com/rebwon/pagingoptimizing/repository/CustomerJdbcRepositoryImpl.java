@@ -1,5 +1,6 @@
-package com.rebwon.pagingoptimizing;
+package com.rebwon.pagingoptimizing.repository;
 
+import com.rebwon.pagingoptimizing.domain.Customer;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;

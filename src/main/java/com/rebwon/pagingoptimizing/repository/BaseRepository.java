@@ -1,4 +1,4 @@
-package com.rebwon.pagingoptimizing;
+package com.rebwon.pagingoptimizing.repository;
 
 import java.io.Serializable;
 import org.springframework.data.domain.Page;

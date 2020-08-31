@@ -1,5 +1,7 @@
-package com.rebwon.pagingoptimizing;
+package com.rebwon.pagingoptimizing.domain;
 
+import com.rebwon.pagingoptimizing.api.CustomerDto;
+import com.rebwon.pagingoptimizing.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
