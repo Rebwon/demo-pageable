@@ -5,6 +5,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,18 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest
 @AutoConfigureMockMvc
 class CustomerControllerTest {
+
+  @Autowired
+  private CustomerJdbcRepository repository;
+
+  @BeforeEach
+  void setUp() {
+    List<Customer> customers = new ArrayList<>();
+    for (int i = 0; i < 100; i++) {
+      customers.add(new Customer("testName" + i));
+    }
+    repository.saveAll(customers);
+  }
 
   @Autowired
   private MockMvc mockMvc;
