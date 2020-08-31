@@ -23,6 +23,9 @@ class CustomerControllerTest {
   @Autowired
   private CustomerJdbcRepository repository;
 
+  @Autowired
+  private MockMvc mockMvc;
+
   @BeforeEach
   void setUp() {
     List<Customer> customers = new ArrayList<>();
@@ -31,9 +34,6 @@ class CustomerControllerTest {
     }
     repository.saveAll(customers);
   }
-
-  @Autowired
-  private MockMvc mockMvc;
 
   @Test
   @DisplayName("totalElements를 입력하지 않을 경우")
@@ -51,5 +51,18 @@ class CustomerControllerTest {
     )
         .andDo(print())
         .andExpect(status().isOk());
+  }
+
+  @Test
+  @DisplayName("PageableDto를 활용한 조회 조건 추가")
+  void findAllCustomers_Custom_PageableDto() throws Exception {
+    mockMvc.perform(get("/v1/customers")
+        .param("page", "1")
+        .param("size", "5")
+        .param("total_elements", "100")
+        .param("sort", "customer_name,desc")
+    )
+      .andDo(print())
+      .andExpect(status().isOk());
   }
 }

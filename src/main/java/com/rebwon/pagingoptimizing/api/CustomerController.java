@@ -20,4 +20,10 @@ public class CustomerController {
     Page<CustomerDto> customer = customerService.getCustomer(pageable, totalElements);
     return ResponseEntity.ok(customer);
   }
+
+  @GetMapping("/v1/customers")
+  public ResponseEntity<Page<CustomerDto>> getCustomer(PageableDto dto) {
+    Page<CustomerDto> customer = customerService.getCustomer(dto);
+    return ResponseEntity.ok(customer);
+  }
 }
