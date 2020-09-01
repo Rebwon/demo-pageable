@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    properties:
+      javax:
+        persistence:
+          sharedcache:
+            mode: ENABLE_SELECTIVE
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.internal.JCacheRegionFactory
+        temp:
+          use_jdbc_metadata_defaults: false
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+
+jdbc.batchSize: 100
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.basicbinder: TRACE
+
+management:
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    cache:
+      instrument: true
