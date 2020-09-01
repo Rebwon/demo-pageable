@@ -4,11 +4,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import com.rebwon.pagingoptimizing.domain.CustomerService;
+import com.rebwon.pagingoptimizing.util.CustomPagedResourceAssembler;
 import com.rebwon.pagingoptimizing.util.PagedModelUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CustomerController {
   private final CustomerService customerService;
-  private final PagedResourcesAssembler<CustomerDto> assembler;
+  private final CustomPagedResourceAssembler<CustomerDto> assembler;
 
   @GetMapping("/customers")
   public ResponseEntity<Page<CustomerDto>> getCustomer(Pageable pageable,
